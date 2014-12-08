@@ -31,36 +31,69 @@
     <a href='' ng-click='selectList(list)' ng-show='!list.hotkey'>{{list.display_name}}</a>
     <a href='' ng-click='selectList(list)' ng-show='list.hotkey'><b>{{list.display_name[0]}}</b>{{list.display_name.slice(1)}}</a>
   </li>
+
+  <p>My <b>B</b>ookshelf indicates a hotkey (in this case, 'B').</p>
 </ul>
+
+<div id='bookshelf' class='container'>
+  <h2>Bookshelf</h2>
+  <ul class='list-unstyled'>
+    <li ng-repeat='book in bookshelf.books' class="bookshelf-item">
+      <img ng-src="{{book.book_image}}" class="bookshelf-image"></img>
+
+      <div class="controls">
+        <button ng-href='{{book.amazon_product_url}}' target="_blank" class='btn btn-default' ng-show='book.amazon_product_url'>
+          <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"> Amazon</span>
+        </button>
+
+        <button type="button" class="btn btn-danger" ng-click='removeFromBookshelf(book)'>
+          <span class="glyphicon glyphicon-remove"></span>
+        </button>
+      </div>
+
+      <div class="bookshelf-item-overlay">
+        <p><b>{{book.title}}</b><br/><i>{{book.author}}</p></i>
+      </div>
+    </li>
+  </ul>
+  <div class='message' ng-show="last_deleted.title">
+    You just removed {{last_deleted.title}} from your bookshelf. Would you like to <a href='' ng-click='returnToBookshelf()'>undo</a>?
+  </div>
+</div>
 
 <div id='main' class='container'>
   <h2>{{current_list.display_name}}</h2>
   <ol class='list-unstyled'>
+    <h3 ng-show='current_list.loading'>Loading books...</h3>
 
     <li ng-repeat="book in current_list.books">
-      <div class="row book-result" ng-click='loadMoreOfBook(book)'>
-        <div class="col-md-2">
-          <img src="{{book.book_image}}" class='preview-image'></img>
+      <div class="row book-result">
+        <div class="col-md-1" class='rank'>
+          {{$index + 1}}
         </div>
 
-        <div class="col-md-10 book-info">
+        <div class="col-md-2">
+          <img ng-src="{{book.book_image}}" class='preview-image'></img>
+        </div>
+
+        <div class="col-md-9 book-info">
           <h2>{{book.title}}</h2>
           <p><i>{{book.author}}</i></p>
 
           <p>{{book.description}}</p>
 
           <p ng-show='book.average_rating' class='rating-block'> 
-            <a ng-show='book.reviews.length > 0' target='_blank'
-              ng-href='{{book.reviews[0].url}}' class='btn btn-default'>NYTimes
-            review</a>
-          <a class='btn btn-default'>GoodReads Community Rating: <span ng-repeat="i in range(book.stars)" class="glyphicon glyphicon-star" aria-hidden="true"></span><span ng-repeat="i in range(5 - book.stars)" class="glyphicon glyphicon-star-empty"
-              aria-hidden="true"></span></a>
+            <a ng-show='book.reviews.length > 0' target='_blank' ng-href='{{book.reviews[0].url}}' class='btn btn-default'>NYTimes review</a>
+            <button class='btn btn-default' ng-click='loadMoreOfBook(book)'>GoodReads Community Rating: 
+              <span ng-repeat="i in range(book.stars)" class="glyphicon glyphicon-star" aria-hidden="true"></span><span ng-repeat="i in range(5 - book.stars)" class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+            </button>
           </p>
           <!--<blockquote ng-show="book.reviews.length > 0">{{book.reviews[0].summary}}</blockquote>--!>
 
-          <a ng-href='{{book.amazon_product_url}}' target="_blank" class='btn btn-default' ng-show='book.amazon_product_url'>
+          <button href='' target="_blank" class='btn btn-success' ng-click='addToBookshelf(book)'>Add to Bookshelf</button>
+          <button ng-href='{{book.amazon_product_url}}' target="_blank" class='btn btn-default' ng-show='book.amazon_product_url'>
             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"> Amazon</span>
-          </a>
+          </button>
 
           <div class='more' ng-show='book.more.show'>
             <h3 ng-show='book.more.loading'>Loading GoodReads reviews...</h3>

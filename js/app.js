@@ -41,6 +41,8 @@ app.controller('MainController', ['$scope', '$sce', function($scope, $sce) {
         return result;
     }
 
+    $scope.bookshelf = {'display_name':"My Bookshelf", 'books':[]};
+
     $scope.lists = [];
     $scope.list_message = "Loading lists...";
     $scope.nytimes.books.listNames()
@@ -57,7 +59,7 @@ app.controller('MainController', ['$scope', '$sce', function($scope, $sce) {
                     $scope.lists.push(list);
                 }
             });
-
+            $scope.lists.push($scope.bookshelf);
             $scope.selectList($scope.lists[0]);
             $scope.$apply();
         })
@@ -79,8 +81,14 @@ app.controller('MainController', ['$scope', '$sce', function($scope, $sce) {
     };
 
     $scope.selectList = function(list) {
+        $scope.lists.forEach(function(list) {
+            list.selected = false;
+        });
+
+        list.selected = true;
         $scope.current_list = list;
         if ($scope.current_list.books === undefined) {
+            $scope.current_list.loading = true;
             $scope.nytimes.books.byList(list.list_name_encoded)
                 .done(function(data) {
                     $scope.current_list.books = [];
@@ -103,6 +111,7 @@ app.controller('MainController', ['$scope', '$sce', function($scope, $sce) {
 
                     $scope.current_list.books.forEach($scope.getProfessionalReviewsOfBook);
                     $scope.$apply();
+                    $scope.current_list.loading = false;
                 });
         }
         $scope.$apply();
@@ -136,4 +145,24 @@ app.controller('MainController', ['$scope', '$sce', function($scope, $sce) {
             book.more.show = !book.more.show;
         }
     };
+
+    $scope.addToBookshelf = function(book) {
+        if ($scope.bookshelf.books.indexOf(book) < 0) {
+            $scope.bookshelf.books.push(book);
+        }
+    };
+    $scope.returnToBookshelf = function() {
+        $scope.addToBookshelf($scope.last_deleted);
+        $scope.last_deleted = undefined;
+    }
+
+    $scope.removeFromBookshelf = function(book) {
+        var index = $scope.bookshelf.books.indexOf(book);
+        if (index >= 0) {
+            $scope.bookshelf.books.splice(index, 1);
+            $scope.last_deleted = book;
+        }
+    };
+
+    $(document).bind('keydown', 'b', $scope.selectList.bind($scope, $scope.bookshelf));
 }]);

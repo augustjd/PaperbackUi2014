@@ -12,3 +12,19 @@
     background:#ccc;
   }
 }
+#bookshelf {
+  .bookshelf-item {
+    display:inline-block;
+    width:12em;
+    margin-right:1em;
+
+    .bookshelf-image {
+      width: 100%;
+      height: auto;
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+  }
+  text-align:left;
+}
