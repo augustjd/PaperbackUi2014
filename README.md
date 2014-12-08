@@ -29,7 +29,9 @@ from inside a block with an ng-repeat decorator to the outside of that block, or
 it will no longer work.
 
 
-This is all set up for using Bootstrap 3.0 with
+Using Sass
+----------
+If you want to use Sass instead of plain css, you'll need to install
 [Compass](http://compass-style.org/install/). Just type 
 ```
 compass watch .
