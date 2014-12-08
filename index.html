@@ -10,16 +10,69 @@
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0/angular.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0/angular-sanitize.js" type="text/javascript" charset="utf-8"></script>
 
-	<script src="./js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
-	<script src="./js/bootstrap-sprockets.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./js/bootstrap/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./js/bootstrap/bootstrap-sprockets.js" type="text/javascript" charset="utf-8"></script>
 	<!-- External Scripts --!>
 
+	<script>window.DEBUG = true;</script>
+	<script src="./js/jquery.hotkeys.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./js/nytimes.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./js/goodreads.js" type="text/javascript" charset="utf-8"></script>
 	<script src="./js/app.js" type="text/javascript" charset="utf-8"></script>
 
 	<link rel="stylesheet" href="./css/main.css" type="text/css" media="screen" charset="utf-8">
 </head>
 
 <body ng-app="PaperbackApp" ng-controller='MainController'>
-</body>
 
+<ul>
+	<h3>{{list_message}}</h3>
+  <li ng-repeat='list in lists'>
+    <a href='' ng-click='selectList(list)' ng-show='!list.hotkey'>{{list.display_name}}</a>
+    <a href='' ng-click='selectList(list)' ng-show='list.hotkey'><b>{{list.display_name[0]}}</b>{{list.display_name.slice(1)}}</a>
+  </li>
+</ul>
+
+<div id='main' class='container'>
+  <h2>{{current_list.display_name}}</h2>
+  <ol class='list-unstyled'>
+
+    <li ng-repeat="book in current_list.books">
+      <div class="row book-result" ng-click='loadMoreOfBook(book)'>
+        <div class="col-md-2">
+          <img src="{{book.book_image}}" class='preview-image'></img>
+        </div>
+
+        <div class="col-md-10 book-info">
+          <h2>{{book.title}}</h2>
+          <p><i>{{book.author}}</i></p>
+
+          <p>{{book.description}}</p>
+
+          <p ng-show='book.average_rating' class='rating-block'> 
+            <a ng-show='book.reviews.length > 0' target='_blank'
+              ng-href='{{book.reviews[0].url}}' class='btn btn-default'>NYTimes
+            review</a>
+          <a class='btn btn-default'>GoodReads Community Rating: <span ng-repeat="i in range(book.stars)" class="glyphicon glyphicon-star" aria-hidden="true"></span><span ng-repeat="i in range(5 - book.stars)" class="glyphicon glyphicon-star-empty"
+              aria-hidden="true"></span></a>
+          </p>
+          <!--<blockquote ng-show="book.reviews.length > 0">{{book.reviews[0].summary}}</blockquote>--!>
+
+          <a ng-href='{{book.amazon_product_url}}' target="_blank" class='btn btn-default' ng-show='book.amazon_product_url'>
+            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"> Amazon</span>
+          </a>
+
+          <div class='more' ng-show='book.more.show'>
+            <h3 ng-show='book.more.loading'>Loading GoodReads reviews...</h3>
+            <h3 ng-show='book.more.no_reviews'>No reviews found on GoodReads.com.</h3>
+            <div ng-bind-html='SkipValidation(book.more.goodreads_widget)'>
+            </div>
+          </div>
+      </div>
+    </li>
+
+  </ol>
+</div>
+
+</body>
 </html>
