@@ -42,9 +42,9 @@
       <img ng-src="{{book.book_image}}" class="bookshelf-image"></img>
 
       <div class="controls">
-        <button ng-href='{{book.amazon_product_url}}' target="_blank" class='btn btn-default' ng-show='book.amazon_product_url'>
+        <a ng-href='{{book.amazon_product_url}}' target="_blank" class='btn btn-default' ng-show='book.amazon_product_url'>
           <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"> Amazon</span>
-        </button>
+        </a>
 
         <button type="button" class="btn btn-danger" ng-click='removeFromBookshelf(book)'>
           <span class="glyphicon glyphicon-remove"></span>
@@ -91,9 +91,9 @@
           <!--<blockquote ng-show="book.reviews.length > 0">{{book.reviews[0].summary}}</blockquote>--!>
 
           <button href='' target="_blank" class='btn btn-success' ng-click='addToBookshelf(book)'>Add to Bookshelf</button>
-          <button ng-href='{{book.amazon_product_url}}' target="_blank" class='btn btn-default' ng-show='book.amazon_product_url'>
+          <a ng-href='{{book.amazon_product_url}}' target="_blank" class='btn btn-default' ng-show='book.amazon_product_url'>
             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"> Amazon</span>
-          </button>
+          </a>
 
           <div class='more' ng-show='book.more.show'>
             <h3 ng-show='book.more.loading'>Loading GoodReads reviews...</h3>
