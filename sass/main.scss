@@ -8,6 +8,14 @@ html, body {
   overflow: hidden;
 }
 
+.book-info h2 {
+  margin: 0px;
+  padding: 0px;
+}
+.book-result{
+  padding: 20px 20px 20px 0px;
+  border-bottom: 1px solid #CFCFCF; 
+}
 .align-center {
   text-align: center;
 }
@@ -19,6 +27,7 @@ html, body {
 
 .book-info {
   padding-right: 20px;
+  padding-bottom: 20 px;
 }
 
 .bookshelf-image {
@@ -89,7 +98,6 @@ html, body {
 
 #left, #right {
   position: absolute;
-  top: 50px;
   overflow-y: auto;
 }
 
@@ -98,18 +106,77 @@ html, body {
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 15px;
+  top: 50px;
   bottom: 0;
+}
+
+#top-left {
+  width: 85%;
+}
+
+#top-right {
+  left: 85%;
+  text-align: center;
 }
 
 #right {
   left: 85%;
-  top: 50px;
   right: 0;
   bottom: 0;
   height: 100%;
+  top: 55px;
 }
 
 #right-well {
   text-align: center;
-  padding: 0px 10px 30px 10px;
+  padding: 10px 10px 50px 10px;
+}
+
+#left ul {
+  list-style-type: none;
+}
+
+.rank {
+  text-align: left;
+}
+
+.rank-text {
+  font-size: 20px;
+  border-radius: 50%;
+    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+
+    width: 45px;
+    height: 45px;
+    padding-top: 8px;
+
+    border: 0px solid #666;
+    color: #f5f5f5;
+    background-color: #B2B2B2;
+    text-align: center;
+}
+
+#current-list-title-container {
+  text-align: center;
+  border-left: solid 1px #4C4C4C;
+  color: #4C4C4C;
+}
+
+.current-list-title {
+  text-align: center;
+}
+
+.navbar-brand {
+  font-size: 1.5em;
+}
+
+.navbar-brand:link {
+  color: #f5f5f5;
+}
+
+.navbar-brand:visited {
+ color: #f5f5f5; 
+}
+
+.navbar-brand:active {
+  color: #f5f5f5;
 }

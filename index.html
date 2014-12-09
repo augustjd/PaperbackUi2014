@@ -26,19 +26,33 @@
 <body ng-app="PaperbackApp" ng-controller='MainController'>
 
   <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
     <div class="container-fluid">
-      <div class="col-md-9">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Paperback</a>
+      <div id="top-left">
+
+        <div class="col-md-3">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Paperback</a>
+          </div>
         </div>
+
+        <div id="current-list-title-container" class="col-md-9">
+          <h3 class="current-list-title navbar-text">{{current_list.display_name}}</h3>
+        </div>
+
+      </div>
+
+      <div id="top-right">
+        <h3 class="current-list-title navbar-text">Bookshelf</h3>
       </div>
     </div>
+
   </nav>
 
 <div id='left' class='container'>
@@ -56,21 +70,20 @@
   </div>
 
   <div class="col-md-9">
-    <h2>{{current_list.display_name}}</h2>
     <ol class='list-unstyled'>
       <h3 ng-show='current_list.loading'>Loading books...</h3>
 
       <li ng-repeat="book in current_list.books">
         <div class="row book-result">
-          <div class="col-md-1" class='rank'>
-            {{$index + 1}}
+          <div class="col-md-2" class='rank'>
+            <p class='rank-text'>{{$index + 1}}</p>
           </div>
 
           <div class="col-md-2">
             <img ng-src="{{book.book_image}}" class='preview-image'></img>
           </div>
 
-          <div class="col-md-9 book-info">
+          <div class="col-md-8 book-info">
             <h2>{{book.title}}</h2>
             <p><i>{{book.author}}</i></p>
 
@@ -104,7 +117,6 @@
 
   <div id='right'>
     <div class="well scroll-y" id="right-well">
-      <h2>Bookshelf</h2>
       <ul class='list-unstyled'>
         <li ng-repeat='book in bookshelf.books' class="bookshelf-item">
           <img ng-src="{{book.book_image}}" class="bookshelf-image"></img>
