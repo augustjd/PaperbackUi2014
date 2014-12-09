@@ -8370,3 +8370,13 @@ html, body {
 .navbar-brand:active {
   color: #f5f5f5;
 }
+
+/* line 184, ../sass/main.scss */
+#current-list-title {
+  text-align: center;
+}
+
+/* line 188, ../sass/main.scss */
+#top-right {
+  text-align: center;
+}
