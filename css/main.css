@@ -370,8 +370,8 @@ th {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url(/fonts/bootstrap/glyphicons-halflings-regular.eot?1418143225);
-  src: url(/fonts/bootstrap/glyphicons-halflings-regular.eot?&1418143225#iefix) format("embedded-opentype"), url(/fonts/bootstrap/glyphicons-halflings-regular.woff?1418143225) format("woff"), url(/fonts/bootstrap/glyphicons-halflings-regular.ttf?1418143225) format("truetype"), url(/fonts/bootstrap/glyphicons-halflings-regular.svg?1418143225#glyphicons_halflingsregular) format("svg");
+  src: url(/fonts/bootstrap/glyphicons-halflings-regular.eot?1418110320);
+  src: url(/fonts/bootstrap/glyphicons-halflings-regular.eot?&1418110320#iefix) format("embedded-opentype"), url(/fonts/bootstrap/glyphicons-halflings-regular.woff?1418110320) format("woff"), url(/fonts/bootstrap/glyphicons-halflings-regular.ttf?1418110320) format("truetype"), url(/fonts/bootstrap/glyphicons-halflings-regular.svg?1418110320#glyphicons_halflingsregular) format("svg");
 }
 /* line 21, ../../../../../Library/Ruby/Gems/2.0.0/gems/bootstrap-sass-3.3.1.0/assets/stylesheets/bootstrap/_glyphicons.scss */
 .glyphicon {
@@ -8284,12 +8284,22 @@ html, body {
 }
 
 /* line 117, ../sass/main.scss */
+#top-left h3 {
+  text-align: center;
+}
+
+/* line 121, ../sass/main.scss */
+#top-right h3 {
+  text-align: center;
+}
+
+/* line 125, ../sass/main.scss */
 #top-right {
   left: 85%;
   text-align: center;
 }
 
-/* line 122, ../sass/main.scss */
+/* line 130, ../sass/main.scss */
 #right {
   left: 85%;
   right: 0;
@@ -8298,23 +8308,23 @@ html, body {
   top: 55px;
 }
 
-/* line 130, ../sass/main.scss */
+/* line 138, ../sass/main.scss */
 #right-well {
   text-align: center;
   padding: 10px 10px 50px 10px;
 }
 
-/* line 135, ../sass/main.scss */
+/* line 143, ../sass/main.scss */
 #left ul {
   list-style-type: none;
 }
 
-/* line 139, ../sass/main.scss */
+/* line 147, ../sass/main.scss */
 .rank {
   text-align: left;
 }
 
-/* line 143, ../sass/main.scss */
+/* line 151, ../sass/main.scss */
 .rank-text {
   font-size: 20px;
   border-radius: 50%;
@@ -8329,34 +8339,34 @@ html, body {
   text-align: center;
 }
 
-/* line 158, ../sass/main.scss */
+/* line 166, ../sass/main.scss */
 #current-list-title-container {
   text-align: center;
   border-left: solid 1px #4C4C4C;
   color: #4C4C4C;
 }
 
-/* line 164, ../sass/main.scss */
+/* line 172, ../sass/main.scss */
 .current-list-title {
   text-align: center;
 }
 
-/* line 168, ../sass/main.scss */
+/* line 176, ../sass/main.scss */
 .navbar-brand {
   font-size: 1.5em;
 }
 
-/* line 172, ../sass/main.scss */
+/* line 180, ../sass/main.scss */
 .navbar-brand:link {
   color: #f5f5f5;
 }
 
-/* line 176, ../sass/main.scss */
+/* line 184, ../sass/main.scss */
 .navbar-brand:visited {
   color: #f5f5f5;
 }
 
-/* line 180, ../sass/main.scss */
+/* line 188, ../sass/main.scss */
 .navbar-brand:active {
   color: #f5f5f5;
 }

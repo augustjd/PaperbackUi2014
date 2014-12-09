@@ -75,7 +75,7 @@
 
       <li ng-repeat="book in current_list.books">
         <div class="row book-result">
-          <div class="col-md-2" class='rank'>
+          <div class="col-md-1" class='rank'>
             <p class='rank-text'>{{$index + 1}}</p>
           </div>
 
@@ -83,7 +83,7 @@
             <img ng-src="{{book.book_image}}" class='preview-image'></img>
           </div>
 
-          <div class="col-md-8 book-info">
+          <div class="col-md-9 book-info">
             <h2>{{book.title}}</h2>
             <p><i>{{book.author}}</i></p>
 
