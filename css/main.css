@@ -8209,10 +8209,10 @@ html, body {
 }
 
 /* line 55, ../sass/main.scss */
-.remove-button-container {
+.controls {
   position: absolute;
   bottom: 10px;
-  left: 10px;
+  right: 10px;
 }
 
 /* line 61, ../sass/main.scss */
@@ -8258,7 +8258,7 @@ html, body {
 
 /* line 96, ../sass/main.scss */
 #left {
-  width: 80%;
+  width: 85%;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 15px;
@@ -8267,7 +8267,7 @@ html, body {
 
 /* line 104, ../sass/main.scss */
 #right {
-  left: 80%;
+  left: 85%;
   top: 50px;
   right: 0;
   bottom: 0;

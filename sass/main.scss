@@ -52,10 +52,10 @@ html, body {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
 }
 
-.remove-button-container {
+.controls {
   position: absolute;
   bottom: 10px;
-  left: 10px;
+  right: 10px;
 }
 
 .content-container {
@@ -94,7 +94,7 @@ html, body {
 }
 
 #left {
-  width: 80%;
+  width: 85%;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 15px;
@@ -102,7 +102,7 @@ html, body {
 }
 
 #right {
-  left: 80%;
+  left: 85%;
   top: 50px;
   right: 0;
   bottom: 0;
