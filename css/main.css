@@ -370,8 +370,8 @@ th {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url(/fonts/bootstrap/glyphicons-halflings-regular.eot?1417896335);
-  src: url(/fonts/bootstrap/glyphicons-halflings-regular.eot?&1417896335#iefix) format("embedded-opentype"), url(/fonts/bootstrap/glyphicons-halflings-regular.woff?1417896336) format("woff"), url(/fonts/bootstrap/glyphicons-halflings-regular.ttf?1417896336) format("truetype"), url(/fonts/bootstrap/glyphicons-halflings-regular.svg?1417896336#glyphicons_halflingsregular) format("svg");
+  src: url(/fonts/bootstrap/glyphicons-halflings-regular.eot?1418074403);
+  src: url(/fonts/bootstrap/glyphicons-halflings-regular.eot?&1418074403#iefix) format("embedded-opentype"), url(/fonts/bootstrap/glyphicons-halflings-regular.woff?1418074403) format("woff"), url(/fonts/bootstrap/glyphicons-halflings-regular.ttf?1418074403) format("truetype"), url(/fonts/bootstrap/glyphicons-halflings-regular.svg?1418074403#glyphicons_halflingsregular) format("svg");
 }
 /* line 21, ../../../../../../var/lib/gems/1.9.1/gems/bootstrap-sass-3.3.0.1/assets/stylesheets/bootstrap/_glyphicons.scss */
 .glyphicon {
@@ -8200,4 +8200,33 @@ button.close {
   .hidden-print {
     display: none !important;
   }
+}
+/* line 5, ../sass/main.scss */
+.preview-image {
+  width: 100%;
+  height: relative;
+}
+
+/* line 11, ../sass/main.scss */
+.book-result:hover {
+  background: #ccc;
+}
+
+/* line 15, ../sass/main.scss */
+#bookshelf {
+  text-align: left;
+}
+/* line 16, ../sass/main.scss */
+#bookshelf .bookshelf-item {
+  display: inline-block;
+  width: 12em;
+  margin-right: 1em;
+}
+/* line 21, ../sass/main.scss */
+#bookshelf .bookshelf-item .bookshelf-image {
+  width: 100%;
+  height: auto;
+  position: relative;
+  top: 0;
+  left: 0;
 }
